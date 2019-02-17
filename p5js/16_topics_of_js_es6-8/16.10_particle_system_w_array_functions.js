@@ -1,6 +1,9 @@
-let particles = [];
+let particles;
 function setup() {
      createCanvas(600, 400);
+     particles = Array(100)
+          .fill()
+          .map(x => new Particle());
 }
 
 function draw() {
@@ -9,39 +12,26 @@ function draw() {
           let p = new Particle();
           particles.push(p);
      }
-     for (const p of particles) {
+     particles.sort((a, b) => b.col - a.col);
+     particles.forEach(p => {
           p.update();
           p.show();
-     }
-     for (let i = particles.length - 1; i >= 0; i--) {
-          if (particles[i].finished()) {
-               particles.splice(i, 1);
-          }
-     }
-}
+     });
+     // for (const particle of particles) {
+     //      particle.update();
+     //      particle.show();
+     // }
+     particles = particles.filter(p => !p.finished());
 
-class Particle {
-     constructor() {
-          this.x = 300;
-          this.y = 380;
-          this.vx = random(-1, 1);
-          this.vy = random(-5, -1);
-          this.alpha = 255;
-     }
+     // let sumX = particles.reduce((x, p) => x + p.x, 0);
+     // let sumY = particles.reduce((y, p) => y + p.y, 0);
+     // let centerX = sumX / particles.length;
+     // let centerY = sumY / particles.length;
+     // fill(255, 0, 0);
+     // ellipse(centerX, centerY, 24, 24);
 
-     finished() {
-          return this.alpha < 0;
-     }
-
-     update() {
-          this.x += this.vx;
-          this.y += this.vy;
-          this.alpha -= 5;
-     }
-
-     show() {
-          noStroke();
-          fill(255, this.alpha);
-          ellipse(this.x, this.y, 16);
-     }
+     let sumV = particles.reduce((v, p) => v.add(p.x, p.y), createVector(0, 0));
+     sumV.div(particles.length);
+     fill(255, 0, 0);
+     ellipse(sumV.x, sumV.y, 4, 4);
 }
