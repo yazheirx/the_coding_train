@@ -24,4 +24,4 @@ This repository stores my version of [The Coding Train's](https://thecodingtrain
 -    [16.13: async/await Part 1](https://youtu.be/XO77Fib9tSI)
 -    [16.14: async/await Part 2](https://youtu.be/chavThlNz3s)
 -    [16.15: Promise.all()](https://youtu.be/01RTj1MWec0)
--    [16.16: try/catch with Promises]()
+-    [16.16: try/catch with Promises](https://youtu.be/BztW_u6HDbs)
