@@ -9,7 +9,7 @@ function make2DArray(cols, rows) {
   let grid;
   let cols;
   let rows;
-  let resolution = 5;
+  let resolution = 5; //going lower than 5 seems to overload the browser
   
   function setup() {
 	createCanvas(800, 800);
