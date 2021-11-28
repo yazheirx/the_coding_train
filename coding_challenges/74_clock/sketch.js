@@ -6,11 +6,11 @@ function draw() {
      background(0);
 
      let hr = hour();
-     let mn = minuet();
+     let mn = minute();
      let sc = second();
 
      fill(255);
-     // noStroke();
+     noStroke();
      text("something", 200, 200);
      text(hr + ':' + mn + ':' + sc, 10, 200);
 
