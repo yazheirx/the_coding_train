@@ -24,35 +24,28 @@ function draw() {
      strokeWeight(sWeight);
      point(x,y);
 
-     let speed = floor(random(4));
-     let r = floor(random(4));
-     switch (r) {
-          case 0:
-               x = x + speed;
-               if (x > width) {
-                    x = width
-               };
-               break;
-          case 1:
-              x = x - speed;
-              if (x < 1) {
-                   x = 1
-              };
-               break;
-          case 2:
-               y = y + speed;
-               if(y > height){
-                    y = height;
-               };
-               break;
-          case 3:
-               y = y - speed;
-               if(y < 0){
-                    y = 0;
-               };
-               break;
-     };
+     let speed = floor(random(8));
+     let stepX = floor(random(-speed+1 , speed));
+     let stepY = floor(random(-speed+1 , speed));
+     print (stepY);
+     x += stepX;
+     y += stepY;
+     checkWalkerConstraints();
+}
 
+function checkWalkerConstraints() {
+     if (x > width) {
+          x = width
+     };
+     if (x < 1) {
+          x = 1
+     };
+     if(y > height){
+          y = height;
+     };
+     if(y < 0){
+          y = 0;
+     };
 }
 
 function moveColor(color){
