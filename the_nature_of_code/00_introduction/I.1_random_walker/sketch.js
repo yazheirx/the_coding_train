@@ -27,7 +27,6 @@ function draw() {
      let speed = floor(random(8));
      let stepX = floor(random(-speed+1 , speed));
      let stepY = floor(random(-speed+1 , speed));
-     print (stepY);
      x += stepX;
      y += stepY;
      checkWalkerConstraints();
